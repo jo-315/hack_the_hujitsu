@@ -1,15 +1,14 @@
 version: '3'
 services:
   flask:
-    container_name: flask
+    container_name: flask_demo
     build:
       context: .
       dockerfile: ./Dockerfile
     ports:
-      - 5000:5000
+      - 5050:5050
     tty: true
     environment:
       TZ: "Asia/Tokyo"
-    env_file: .env
     volumes:
       - .:/app
