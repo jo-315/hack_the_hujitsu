@@ -5,6 +5,13 @@
 flamework: Flask
 
 ## 環境構築
+
+### git
+1. 作業用のフォルダを自分のPC（ローカル）に作る
+2. `git clone URL`でリモートからファイルを持ってくる
+https://qiita.com/masamitsu-konya/items/abb572337156e4d003cf
+
+### docker
 ルートディレクトリで`docker-compose build`
 
 ### localでの起動コマンド
