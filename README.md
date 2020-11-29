@@ -1,18 +1,23 @@
 # 富士通 Hack the Future(京FC)
 テーマ：おうち町歩き
 
-## 環境
+### 環境
 flamework: Flask
 
 ## 環境構築
 ルートディレクトリで`docker-compose build`
 
-## localでの起動コマンド
+### localでの起動コマンド
 `docker-compose up`  
 ※`-d`をつけるとバックグラウンドで実行
 
-## ブラウザ表示
+### ブラウザ表示
 `localhost:5050`
+
+## ファイル構造
+- `src`内にファイルを配置（それ以外は設定ファイル）
+- `.main.py`: バックエンドのファイル。ここに、歩行の処理やらなんやらを書きましょう
+- `templates/ndex.html`: ブラウザに表示されるファイル。`jinja2`というpythonとhtmlの中間的なファイルです。
 
 ## git
 1. ブランチ切る
@@ -20,7 +25,7 @@ flamework: Flask
 3. リモートにpush
 4. gitのHPにきてプルリクエストを作る
 
-# dockerコマンド
+## dockerコマンド
 - 実行
 `docker-compose up`
 
