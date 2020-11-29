@@ -1,4 +1,7 @@
-# 環境
+# 富士通 Hack the Future(京FC)
+テーマ：おうち町歩き
+
+## 環境
 flamework: Flask
 
 ## 環境構築
@@ -7,6 +10,15 @@ flamework: Flask
 ## localでの起動コマンド
 `docker-compose up`  
 ※`-d`をつけるとバックグラウンドで実行
+
+## ブラウザ表示
+`localhost:5050`
+
+## git
+1. ブランチ切る
+2. ローカル（自分のPC）で作業する→コミット
+3. リモートにpush
+4. gitのHPにきてプルリクエストを作る
 
 # dockerコマンド
 - 実行
