@@ -26,11 +26,13 @@ https://qiita.com/masamitsu-konya/items/abb572337156e4d003cf
 - `.main.py`: バックエンドのファイル。ここに、歩行の処理やらなんやらを書きましょう
 - `templates/ndex.html`: ブラウザに表示されるファイル。`jinja2`というpythonとhtmlの中間的なファイルです。
 
-## git
-1. ブランチ切る
+## gitでの作業
+1. ブランチを切る（名前はご自由に）
 2. ローカル（自分のPC）で作業する→コミット
 3. リモートにpush
 4. gitのHPにきてプルリクエストを作る
+
+https://qiita.com/kentalpsw/items/1c6d2cfc5393da80dc45
 
 ## dockerコマンド
 - 実行
