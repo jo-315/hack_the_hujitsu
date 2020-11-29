@@ -1,0 +1,15 @@
+version: '3'
+services:
+  flask:
+    container_name: flask
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - 5000:5000
+    tty: true
+    environment:
+      TZ: "Asia/Tokyo"
+    env_file: .env
+    volumes:
+      - .:/app
