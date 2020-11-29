@@ -27,7 +27,7 @@ https://qiita.com/masamitsu-konya/items/abb572337156e4d003cf
 - `templates/ndex.html`: ブラウザに表示されるファイル。`jinja2`というpythonとhtmlの中間的なファイルです。
 
 ## gitでの作業
-1. ブランチを切る（名前はご自由に）
+1. ブランチを切る（名前はご自由に。自分の名前入れてもらえた方がわかりやすいです。）
 2. ローカル（自分のPC）で作業する→コミット
 3. リモートにpush
 4. gitのHPにきてプルリクエストを作る
