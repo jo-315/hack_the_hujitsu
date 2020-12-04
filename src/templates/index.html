@@ -4,10 +4,13 @@
     <link rel="stylesheet" href="/static/style.css">
     <title>デモ</title>
   </head>
-  <body>
+  <body onLoad="fetch_step()">
     <div>
       <h1>デモ</h1>
       <div>デモにゃ〜</div>
+      <div>歩数: <p id="steps">0</p></div>
     </div>
+
+    <script src="/static/index.js"></script>
   </body>
 </html>
