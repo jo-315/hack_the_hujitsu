@@ -12,7 +12,13 @@ var fetch_step = setInterval(function(){
 
     // 歩数をelementに渡す
     document.getElementById("steps").innerHTML = steps
-  });
+
+    return steps
+  })
+  .then((steps) => {
+     // Google Map API 飛ばす？？
+  })
+  ;
 
 }, 3000);
 
