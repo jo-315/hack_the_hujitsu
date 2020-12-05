@@ -12,7 +12,6 @@ var fetch_step = setInterval(function(){
 
   const qs = new URLSearchParams(params);
 
-
   // fetch api でlocalhostと通信
   fetch(`/fetch?${qs}`, {
     method: "GET"
@@ -21,11 +20,15 @@ var fetch_step = setInterval(function(){
     return response.json();
   })
   .then((response) => {
-    // Google MAP Data の取り出し
-    console.log(response)
+    // map_url = response.map_url
+    n_latitude = response.n_latitude
+    n_longitude = response.n_longitude
+
+    // Google MAP のURLをフロントに渡す
+    // document.getElementById("google_map").src = map_url
 
     // elementに渡す
-    document.getElementById("total_steps").innerHTML = total_steps + steps
+    document.getElementById("total_steps").innerHTML = parseInt(total_steps, 10) + parseInt(steps, 10)
     document.getElementById("steps").innerHTML = 0
   });
 
