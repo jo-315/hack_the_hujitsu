@@ -1,16 +1,18 @@
 var fetch_step = setInterval(function(){
-  latitude = 10
-  longitude = 20
-  // latitude = document.getElementById("latitude").innerHTML
-  // longitude = document.getElementById("longitude").innerHTML
+  latitude = document.getElementById("latitude").innerHTML
+  longitude = document.getElementById("longitude").innerHTML
+  steps = document.getElementById("steps").innerHTML
+  total_steps = document.getElementById("total_steps").innerHTML
+
   const params = {
     latitude: latitude,
-    longitude: longitude
+    longitude: longitude,
+    steps: steps
   };
   const qs = new URLSearchParams(params);
 
   // fetch api でlocalhostと通信
-  fetch(`http://localhost:5050/fetch?${qs}`, {
+  fetch(`/fetch?${qs}`, {
     method: "GET"
   })
   .then((response) => {
@@ -18,25 +20,11 @@ var fetch_step = setInterval(function(){
   })
   .then((response) => {
     // Google MAP Data の取り出し
+    console.log(response)
 
     // elementに渡す
-    // document.getElementById("steps").innerHTML = steps
-    // const fenway = { lat: 42.345573, lng: -71.098326 };
-    // const map = new google.maps.Map(document.getElementById("map"), {
-    //   center: fenway,
-    //   zoom: 14,
-    // });
-    // const panorama = new google.maps.StreetViewPanorama(
-    //   document.getElementById("pano"),
-    //   {
-    //     position: fenway,
-    //     pov: {
-    //       heading: 34,
-    //       pitch: 10,
-    //     },
-    //   }
-    // );
-    // map.setStreetView(panorama);
+    document.getElementById("total_steps").innerHTML = total_steps + steps
+    document.getElementById("steps").innerHTML = 0
   });
 
 }, 3000);
