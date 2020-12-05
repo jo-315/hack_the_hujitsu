@@ -1,8 +1,46 @@
 <html>
   <head>
+<<<<<<< Updated upstream
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/static/style.css">
     <title>デモ</title>
+=======
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCzeTYFx3VrqyJwzKVG33s9gOWpQKytJPU&callback=initialize&libraries=&v=weekly"
+      defer
+    ></script>
+    <div hidden id=mobile_check>0</div>
+    <link rel="stylesheet"  href="../static/style.css"  >
+    <script src="/static/index.js"></script>
+    <meta charset="utf-8">
+    <title>おうち街歩き</title>
+
+    <script>
+      function initialize() {
+        const fenway = { lat: 42.345573, lng: -71.098326 };
+        const map = new google.maps.Map(document.getElementById("map"), {
+          center: fenway,
+          zoom: 14,
+        });
+        const panorama = new google.maps.StreetViewPanorama(
+          document.getElementById("pano"),
+          {
+            position: fenway,
+            pov: {
+              heading: 34,
+              pitch: 10,
+            },
+          }
+        );
+        map.setStreetView(panorama);
+        // id=mobile_check内の値を変更，携帯なら1
+        if(window.matchMedia && window.matchMedia('(max-device-width: 640px)').matches){
+          document.getElementById("mobile_check").innerHTML = 1;
+        }
+        alert(document.getElementById("mobile_check").innerHTML);
+      }
+    </script>
+>>>>>>> Stashed changes
   </head>
   <body onLoad="fetch_step()">
 

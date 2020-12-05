@@ -8,7 +8,7 @@ def index():
     return render_template("index.html", m='sss')
 
 
-#  javascriptからのAPIを受け取って歩数を返す
+# javascriptからのAPIを受け取って歩数を返す
 @app.route('/fetch', methods=['GET'])
 def fetch():
     # TODO: 歩数をAPIで取得（google fit api）
