@@ -4,15 +4,30 @@ body{
   font-family:serif;
 }
 h1{
-
+  font-size: 60px;
   text-align: center;
   padding-top: 5px;
+  margin:10px;
 }
+div{
+    text-align: center;
+}
+span{
+  padding:0px 10px;
+}
+span{
+  color:red;
+}
+
+
 ol{
-  padding-left:300px;
+  padding-left:400px;
 
 }
 p{
   text-align: center;
-  padding-bottom: 50px;
+
+}
+.map{
+  padding-bottom: 10px;
 }

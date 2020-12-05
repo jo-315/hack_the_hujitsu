@@ -15,6 +15,7 @@ DATA_SOURCE = "derived:com.google.step_count.delta:com.google.android.gms:estima
 REDIRECT_URI = 'urn:ietf:wg:oauth:2.0:oob'
 CREDENTIALS_FILE = "./credentials"
 
+START = {'latitude': -157.85059440538518, 'longitude': 21.292003771901275}
 GOAL = {'latitude': -157.84389066977633, 'longitude': 21.289743961838436}
 
 # 最初の検索画面
