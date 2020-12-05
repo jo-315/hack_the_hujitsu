@@ -1,2 +1,7 @@
 flask==1.1.2
 flask-cors
+httplib2
+google-api-python-client
+oauth2client
+requests
+gunicorn

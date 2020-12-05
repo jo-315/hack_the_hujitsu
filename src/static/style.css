@@ -1,0 +1,33 @@
+body{
+  background-image: url("https://free.foto.ne.jp/free/img/images_big/C01011-006H.jpg");
+  background-size: cover;
+  font-family:serif;
+}
+h1{
+  font-size: 60px;
+  text-align: center;
+  padding-top: 5px;
+  margin:10px;
+}
+div{
+    text-align: center;
+}
+span{
+  padding:0px 10px;
+}
+span{
+  color:red;
+}
+
+
+ol{
+  padding-left:400px;
+
+}
+p{
+  text-align: center;
+
+}
+.map{
+  padding-bottom: 10px;
+}

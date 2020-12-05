@@ -1,20 +1,32 @@
-<html>
+<!DOCTYPE html>
+<html lang="ja">
+
   <head>
+<<<<<<< HEAD
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/static/style.css">
     <title>デモ</title>
 
+=======
+>>>>>>> 5e931ce82304548f5d3a78ecf67a2795b5afe346
     <script
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCzeTYFx3VrqyJwzKVG33s9gOWpQKytJPU&callback=initialize&libraries=&v=weekly"
       defer
     ></script>
+<<<<<<< HEAD
     <div hidden id=mobile_check>0</div>
+=======
+>>>>>>> 5e931ce82304548f5d3a78ecf67a2795b5afe346
     <link rel="stylesheet"  href="../static/style.css"  >
     <script src="/static/index.js"></script>
     <meta charset="utf-8">
     <title>おうち街歩き</title>
 
+<<<<<<< HEAD
     <script>
+=======
+    <!-- <script>
+>>>>>>> 5e931ce82304548f5d3a78ecf67a2795b5afe346
       function initialize() {
         const fenway = { lat: 42.345573, lng: -71.098326 };
         const map = new google.maps.Map(document.getElementById("map"), {
@@ -32,6 +44,7 @@
           }
         );
         map.setStreetView(panorama);
+<<<<<<< HEAD
         // id=mobile_check内の値を変更，携帯なら1
         if(window.matchMedia && window.matchMedia('(max-device-width: 640px)').matches){
           document.getElementById("mobile_check").innerHTML = 1;
@@ -40,15 +53,28 @@
       }
     </script>
 
+=======
+      }
+    </script> -->
+>>>>>>> 5e931ce82304548f5d3a78ecf67a2795b5afe346
   </head>
-  <body onLoad="fetch_step()">
 
-    <div>
-      <h1>デモ</h1>
-      <div>デモにゃ〜</div>
-      <div>歩数: <p id="steps">0</p></div>
-    </div>
+  <body>
+    <h1 >おうち街歩き</h1>
+    <div>歩数: <span id="steps">0</span></div>
+    <div>緯度: <span id="latitude">0</span>
+             経度: <span id="longitude">0</span></div>
 
-    <script src="/static/index.js"></script>
+    <ol>
+      <li>目的地を指定する(input関数がわからない)</li>
+      <li>Pythonから受け取った{{msg}}</li>
+      <li>記録した歩数をもとにストリートビューを移動</li>
+    </ol>
+    <p class ="map">
+      <iframe src="https://www.google.com/maps/embed?pb=!4v1607146120359!6m8!1m7!1s6l1Z-l8CkSx6o3FAND3LJg!2m2!1d21.289743961838436!2d-157.84389066977633!3f60.208799173604845!4f-2.8000316775918748!5f0.7820865974627469" width="800" height="600" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>></iframe>
+    </p>
+    <div id="map"></div>
+    <div id="pano"></div>
+
   </body>
 </html>
