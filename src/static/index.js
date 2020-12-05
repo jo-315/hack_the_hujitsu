@@ -5,11 +5,11 @@ var fetch_step = setInterval(function(){
     latitude: latitude,
     longitude: longitude
   };
+  const qs = new URLSearchParams(params);
 
   // fetch api でlocalhostと通信
-  fetch('http://localhost:5050/fetch', {
-    method: "GET",
-    body: params
+  fetch(`http://localhost:5050/fetch?${qs}`, {
+    method: "GET"
   })
   .then((response) => {
     return response.json();
