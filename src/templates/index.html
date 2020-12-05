@@ -2,9 +2,35 @@
 <html lang="ja">
 
   <head>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCzeTYFx3VrqyJwzKVG33s9gOWpQKytJPU&callback=initialize&libraries=&v=weekly"
+      defer
+    ></script>
     <link rel="stylesheet"  href="../static/style.css"  >
+    <script src="/static/index.js"></script>
     <meta charset="utf-8">
     <title>おうち街歩き</title>
+
+    <script>
+      function initialize() {
+        const fenway = { lat: 42.345573, lng: -71.098326 };
+        const map = new google.maps.Map(document.getElementById("map"), {
+          center: fenway,
+          zoom: 14,
+        });
+        const panorama = new google.maps.StreetViewPanorama(
+          document.getElementById("pano"),
+          {
+            position: fenway,
+            pov: {
+              heading: 34,
+              pitch: 10,
+            },
+          }
+        );
+        map.setStreetView(panorama);
+      }
+    </script>
   </head>
 
   <body>
@@ -17,10 +43,10 @@
       <li>記録した歩数をもとにストリートビューを移動</li>
     </ol>
     <p>
-      <iframe src={{point["ラスベガス"]}} width="800" height="600" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+      <!-- <iframe src={{point["ラスベガス"]}} width="800" height="600" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe> -->
     </p>
-
-    <script src="/static/index.js"></script>
+    <div id="map"></div>
+    <div id="pano"></div>
 
   </body>
 </html>
