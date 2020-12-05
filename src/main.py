@@ -29,10 +29,19 @@ def index():
 #  javascriptからのAPIを受け取って歩数を返す
 @app.route('/fetch', methods=['GET'])
 def fetch():
-    # TODO: 歩数をAPIで取得（google fit api）
-    steps = fetch_steps()
+    # 現在の緯度経度を取得
+    latitude = request.args.get('latitude')
+    longitude = request.args.get('longitude')
 
-    return {'steps': steps}
+    # TODO: 歩数をAPIで取得（google fit api）
+    # steps = fetch_steps()
+    steps = 10
+
+    # TODO: 移動後の緯度経度を計算
+
+    # TODO: Google MAP の URL を取得
+
+    return {'hogehoge': ''}
 
 
 def auth_data():
