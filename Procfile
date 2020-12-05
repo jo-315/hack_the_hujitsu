@@ -1,1 +1,1 @@
-web: gunicorn app:app --log-file -
+web: flask run -h 0.0.0.0 -p 5050
