@@ -35,15 +35,17 @@
 
   <body>
     <h1 >おうち街歩き</h1>
+    <div>歩数: <span id="steps">0</span></div>
+    <div>緯度: <span id="latitude">0</span>
+             経度: <span id="longitude">0</span></div>
 
-    <div>歩数: <p id="steps">0</p></div>
     <ol>
       <li>目的地を指定する(input関数がわからない)</li>
       <li>Pythonから受け取った{{msg}}</li>
       <li>記録した歩数をもとにストリートビューを移動</li>
     </ol>
-    <p>
-      <iframe src={{point["ラスベガス"]}} width="800" height="600" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+    <p class ="map">
+      <iframe src="https://www.google.com/maps/embed?pb=!4v1607146120359!6m8!1m7!1s6l1Z-l8CkSx6o3FAND3LJg!2m2!1d21.289743961838436!2d-157.84389066977633!3f60.208799173604845!4f-2.8000316775918748!5f0.7820865974627469" width="800" height="600" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>></iframe>
     </p>
     <div id="map"></div>
     <div id="pano"></div>
