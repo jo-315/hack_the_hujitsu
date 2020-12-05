@@ -29,4 +29,10 @@ function onDeviceMotion(e) {
         }
     }
     console.log(_step + "歩");
+    // fetchが大事 method: POST
+    /* fetch('http://localhost:5050/mobiledata',{
+                method: 'POST', 
+                body: _step,  });
+
+    */
 }
