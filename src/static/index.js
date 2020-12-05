@@ -29,6 +29,7 @@ var fetch_step = setInterval(function(){
     // elementに渡す
     document.getElementById("total_steps").innerHTML = parseInt(total_steps, 10) + parseInt(steps, 10)
     document.getElementById("steps").innerHTML = 0
+    // ??? document.getElementById("steps").innerHTML = steps
   });
 
 }, 3000);

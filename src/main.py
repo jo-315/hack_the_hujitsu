@@ -10,11 +10,15 @@ CREDENTIALS_FILE = "./credentials"
 START = {'latitude': -157.85059440538518, 'longitude': 21.292003771901275}
 GOAL = {'latitude': -157.84389066977633, 'longitude': 21.289743961838436}
 theta = 0
+mobile_bool = 0
 
 # 最初の検索画面
 @app.route('/', methods=['GET'])
 def index():
-    # if(getElementById(mobile_check.innerHTML))
+    if mobile_bool == "1":
+        return render_template("mobile.html", mobile_bool=mobile_bool)
+
+
     theta = calc_theta(START, GOAL)
     start = START
     return render_template("index.html", start=start)

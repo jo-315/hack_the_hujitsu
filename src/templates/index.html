@@ -9,8 +9,17 @@
     <script
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCzeTYFx3VrqyJwzKVG33s9gOWpQKytJPU&language=ja"
     ></script>
+    <!-- {% set mobile_bool = '0' %} -->
+    <div hidden id=mobile_check>{{ mobile_bool }}</div>
 
-    <div hidden id=mobile_check>0</div>
+    <script language=javascript>
+      window.onload = function () {
+        if(window.matchMedia && window.matchMedia('(max-device-width: 640px)').matches){
+          document.getElementById("mobile_check").innerHTML = 1;
+        }
+        alert(document.getElementById("mobile_check").innerHTML);
+      }
+    </script>
 
     <title>おうち街歩き</title>
 
