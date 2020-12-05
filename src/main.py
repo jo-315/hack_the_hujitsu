@@ -26,7 +26,9 @@ def fetch():
     # 現在の緯度経度及び歩数を取得
     latitude = float(request.args.get('latitude'))
     longitude = float(request.args.get('longitude'))
-    steps = float(request.args.get('steps'))
+
+    # TODO 歩数データをファイルより取得
+    steps = 0
 
     # 移動後の緯度経度を計算
     n_latitude, n_longitude = calc_moving(latitude, longitude, theta, steps)

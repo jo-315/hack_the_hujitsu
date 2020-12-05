@@ -1,13 +1,11 @@
 var fetch_step = setInterval(function(){
   latitude = document.getElementById("latitude").innerHTML
   longitude = document.getElementById("longitude").innerHTML
-  steps = document.getElementById("steps").innerHTML
   total_steps = document.getElementById("total_steps").innerHTML
 
   const params = {
     latitude: latitude,
-    longitude: longitude,
-    steps: steps
+    longitude: longitude
   };
 
   const qs = new URLSearchParams(params);
@@ -23,6 +21,7 @@ var fetch_step = setInterval(function(){
     // map_url = response.map_url
     n_latitude = response.n_latitude
     n_longitude = response.n_longitude
+    steps = response.steps
 
     // Google MAP のURLをフロントに渡す
     // document.getElementById("google_map").src = map_url
