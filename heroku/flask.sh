@@ -2,4 +2,4 @@
 
 pip install -r ./requirements.txt
 
-flask run -h 0.0.0.0 -p $PORT
+flask run -h 0.0.0.0 -p 5050
