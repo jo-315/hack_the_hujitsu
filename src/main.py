@@ -41,7 +41,7 @@ def fetch():
 
     # TODO: Google MAP の URL を取得
 
-    return {'hogehoge': }
+    return {'hogehoge': ''}
 
 
 def auth_data():
