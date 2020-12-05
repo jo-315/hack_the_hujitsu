@@ -10,11 +10,15 @@ CREDENTIALS_FILE = "./credentials"
 START = {'latitude': -157.85059440538518, 'longitude': 21.292003771901275}
 GOAL = {'latitude': -157.84389066977633, 'longitude': 21.289743961838436}
 theta = 0
+mobile_bool = 0
 
 # 最初の検索画面
 @app.route('/', methods=['GET'])
 def index():
-    # if(getElementById(mobile_check.innerHTML))
+    if mobile_bool == "1":
+        return render_template("mobile.html", mobile_bool=mobile_bool)
+
+
     theta = calc_theta(START, GOAL)
     start = START
     return render_template("index.html", start=start)
@@ -24,18 +28,20 @@ def index():
 @app.route('/fetch', methods=['GET'])
 def fetch():
     # 現在の緯度経度及び歩数を取得
-    latitude = request.args.get('latitude')
-    longitude = request.args.get('longitude')
-    steps = request.args.get('steps')
+    latitude = float(request.args.get('latitude'))
+    longitude = float(request.args.get('longitude'))
+
+    # TODO 歩数データをファイルより取得
+    steps = 0
 
     # 移動後の緯度経度を計算
     n_latitude, n_longitude = calc_moving(latitude, longitude, theta, steps)
 
     # Google MAP の URL を取得
-    get_map_url = get_map_url(n_latitude, n_longitude)
+    map_url = get_map_url(n_latitude, n_longitude)
 
     return {
-        'map_url': get_map_url,
+        'map_url': map_url,
         'n_latitude': n_latitude,
         'n_longitude': n_longitude
         }
@@ -88,10 +94,9 @@ def calc_moving(current_lat, current_lon, theta, step):
     """
 
     stride = 1.0 # 歩幅 (1歩を1mとする)
-    moving = stride * step # 移動距離[m]
+    moving = stride * float(step) # 移動距離[m]
     moving_east = np.cos(np.radians(theta)) * moving # 東西方向の移動距離[m], 東が正方向
     moving_north = np.sin(np.radians(theta)) * moving # 南北方向の移動距離[m], 北が正方向
-
 
     next_lon, next_lat = trans_lat_lon(moving_east, moving_north, current_lat, current_lon)
 
@@ -142,7 +147,7 @@ def trans_lat_lon(x, y, phi0_deg, lambda0_deg):
     # 補助関数
     def A_array(n):
         A0 = 1 + (n**2)/4. + (n**4)/64.
-        A1 = -     (3./2)*( n - (n**3)/8. - (n**5)/64. ) 
+        A1 = -     (3./2)*( n - (n**3)/8. - (n**5)/64. )
         A2 =     (15./16)*( n**2 - (n**4)/4. )
         A3 = -   (35./48)*( n**3 - (5./16)*(n**5) )
         A4 =   (315./512)*( n**4 )

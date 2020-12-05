@@ -27,9 +27,13 @@ function onDeviceMotion(e) {
             _isStep = true;
         }
     }
+}
 
-    fetch('/mobiledata',{
-        method: 'POST',
-        body: _step
-    });
+function post_steps(){
+    setInterval(function(){
+        fetch('/mobiledata',{
+            method: 'POST',
+            body: _step
+        });
+    }, 3000);
 }
