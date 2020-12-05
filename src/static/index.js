@@ -1,25 +1,24 @@
 var fetch_step = setInterval(function(){
+  latitude = document.getElementById("latitude").innerHTML
+  longitude = document.getElementById("longitude").innerHTML
+  const params = {
+    latitude: latitude,
+    longitude: longitude
+  };
+
   // fetch api でlocalhostと通信
   fetch('http://localhost:5050/fetch', {
-    method: "GET"
+    method: "GET",
+    body: params
   })
   .then((response) => {
     return response.json();
   })
   .then((response) => {
-    // 歩数の取り出し
-    steps = response.steps
+    // Google MAP Data の取り出し
 
-    // 歩数をelementに渡す
-    document.getElementById("steps").innerHTML = steps
-
-    return steps
-  })
-  .then((steps) => {
-     // Google Map API 飛ばす？？
-  })
-  ;
+    // elementに渡す
+    // document.getElementById("steps").innerHTML = steps
+  });
 
 }, 3000);
-
-// TODO: google map api と通信？？
