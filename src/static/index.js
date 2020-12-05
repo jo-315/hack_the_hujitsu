@@ -9,7 +9,9 @@ var fetch_step = setInterval(function(){
     longitude: longitude,
     steps: steps
   };
+
   const qs = new URLSearchParams(params);
+
 
   // fetch api でlocalhostと通信
   fetch(`/fetch?${qs}`, {
