@@ -12,7 +12,7 @@ from oauth2client.file import Storage
 OAUTH_SCOPE = 'https://www.googleapis.com/auth/fitness.activity.read'
 DATA_SOURCE = "derived:com.google.step_count.delta:com.google.android.gms:estimated_steps"
 REDIRECT_URI = 'urn:ietf:wg:oauth:2.0:oob'
-CREDENTIALS_FILE = "./secret/credentials"
+CREDENTIALS_FILE = "./credentials"
 
 def auth_data():
 
