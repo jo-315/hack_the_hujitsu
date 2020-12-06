@@ -1,6 +1,8 @@
 from flask import render_template, request
 from src import app
 import numpy as np
+import json
+import collections as cl
 
 OAUTH_SCOPE = 'https://www.googleapis.com/auth/fitness.activity.read'
 DATA_SOURCE = "derived:com.google.step_count.delta:com.google.android.gms:estimated_steps"
@@ -9,16 +11,76 @@ CREDENTIALS_FILE = "./credentials"
 
 START = {'latitude': -157.85059440538518, 'longitude': 21.292003771901275}
 GOAL = {'latitude': -157.84389066977633, 'longitude': 21.289743961838436}
+start = {'latitude':0, 'longitude':0}
 theta = 0
 mobile_bool = 0
+total_step = 0
+step = 0
 
 # 最初の検索画面
 @app.route('/', methods=['GET'])
 def index():
-    print(request.form.getlist("mobile_check"))
+    start = START
+    # print('request.form.getlist("mobile-check")',request.form.getlist("mobile-check"))
+    # total_step = total_step + step
+
+
+    with open("./step_data.json", "r") as f:
+        data = json.load(f)
+        print(data)
+        total_step = data['step']
+        latitude = data['latitude']
+        longitude = data['longitude']
+
+    if total_step == 0:
+        start = START
+    else:
+        start = {'latitude':latitude, 'longitude':longitude}
+
+
+    return render_template("index.html", start=start)
+
+@app.route('/', methods=['POST'])
+def reload_steps():
+    step = request.form.getlist("steps")
+    step = int(step[0])
+    # print("steps:",step)
+
+    with open("./step_data.json", "r") as f:
+        data = json.load(f)
+        print(data)
+        total_step = data['step']
+        latitude = data['latitude']
+        longitude = data['longitude']
 
     theta = calc_theta(START, GOAL)
-    start = START
+    if total_step == 0:
+        # start = START
+        latitude,longitude = calc_moving(latitude, longitude, theta, step)
+        start = {'latitude':latitude, 'longitude':longitude}
+
+        print("total_step == 0")
+        with open("./step_data.json", "w") as f:
+            data = cl.OrderedDict()
+            data['step'] = step
+            data['latitude'] = start['latitude']
+            data['longitude'] = start['longitude']
+            json.dump(data,f,indent=4)
+        
+
+    else:
+        print("total_step > 0")
+        # start['latitude'],start['longitude'] = calc_moving(latitude, longitude, theta, step)
+        longitude,latitude = calc_moving(latitude, longitude, theta, step)
+        start = {'latitude':latitude, 'longitude':longitude}
+        total_step += step
+        with open("./step_data.json", "w") as f:
+            data = cl.OrderedDict()
+            data['step'] = total_step
+            data['latitude'] = start['latitude']
+            data['longitude'] = start['longitude']
+            json.dump(data,f,indent=4)
+
     return render_template("index.html", start=start)
 
 

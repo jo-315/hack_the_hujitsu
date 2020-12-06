@@ -10,14 +10,16 @@
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCzeTYFx3VrqyJwzKVG33s9gOWpQKytJPU&language=ja"
     ></script>
     <!-- {% set mobile_bool = '0' %} -->
-    <input type="hidden" id="mobile_check" name="mobile_check">{{ mobile_bool }}</div>
+    <div type="hidden" id="mobile_check" name="mobile-check">{{ mobile_bool }}</div>
 
     <script language=javascript>
       window.onload = function () {
         if(window.matchMedia && window.matchMedia('(max-device-width: 640px)').matches){
-          document.getElementById("mobile_check").innerHTML = 1;
+          document.getElementById("mobile_check").innerHTML = '1';
+        }else{
+          document.getElementById("mobile_check").innerHTML = '0';
         }
-        alert(document.getElementById("mobile_check").innerHTML);
+        // alert(document.getElementById("mobile_check").innerHTML);
       }
     </script>
 
@@ -67,6 +69,11 @@
 
     <div id="map"></div>
     <div id="pano"></div>
+
+    <form action="/" method="POST" enctype="multipart/form-data">
+      <input type="text" size="40" maxlength="20" name="steps"/>
+      <input type="submit" value="send" />
+    </form>
 
     <script>
       var MyLatLng = new google.maps.LatLng(
