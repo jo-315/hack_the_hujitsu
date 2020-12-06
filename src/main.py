@@ -15,9 +15,7 @@ mobile_bool = 0
 # 最初の検索画面
 @app.route('/', methods=['GET'])
 def index():
-    if mobile_bool == "1":
-        return render_template("mobile.html", mobile_bool=mobile_bool)
-
+    print(request.form.getlist("mobile_check"))
 
     theta = calc_theta(START, GOAL)
     start = START
@@ -39,6 +37,8 @@ def fetch():
 
     # Google MAP の URL を取得
     map_url = get_map_url(n_latitude, n_longitude)
+    # theta = 0
+    # map_url = get_view_url(n_latitude, n_longitude, theta)
 
     return {
         'map_url': map_url,
@@ -63,7 +63,7 @@ def get_map_url(lat, lon):
     Returns:
         url (str): 入力された緯度経度のGoogle MapのURL
     """
-    base_url = "https://maps.google.co.jp/maps?"
+    base_url = "https://maps.google.co.jp/maps?key=AIzaSyDBvtAzU-u_hQeSR5TvMGY3Lj8XgC8yDao"
 
     # 緯度経度オプション
     opt_location = "ll=" + str(lat) + "," + str(lon)
@@ -78,6 +78,25 @@ def get_map_url(lat, lon):
 
     url = base_url + opt_location + opt_zoom + opt_pin
 
+    return url
+
+def get_view_url(lat, lon, theta):
+    """
+    グーグルストリートビューのURLを取得する
+​
+    Args:
+        lat (float): 北緯
+        lon (float): 東経
+​
+    Returns:
+        url (str): 入力された緯度経度のGoogle MapのURL
+    """
+    base_url = "https://www.google.com/maps/@?api=1&map_action=pano&parameters"
+    # 緯度経度オプション
+    opt_location = "&viewpoint=" + str(lon) + "," + str(lat)
+    head = theta + 90
+    opt_head = "&heading=" + str(head)
+    url = base_url + opt_location + opt_head
     return url
 
 def calc_moving(current_lat, current_lon, theta, step):
