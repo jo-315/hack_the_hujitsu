@@ -35,5 +35,6 @@ function post_steps(){
             method: 'POST',
             body: _step
         });
+        console.log("POST /mobiledata" + _step);
     }, 3000);
 }

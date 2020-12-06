@@ -12,15 +12,6 @@
     <!-- {% set mobile_bool = '0' %} -->
     <div hidden id=mobile_check>{{ mobile_bool }}</div>
 
-    <script language=javascript>
-      window.onload = function () {
-        if(window.matchMedia && window.matchMedia('(max-device-width: 640px)').matches){
-          document.getElementById("mobile_check").innerHTML = 1;
-        }
-        alert(document.getElementById("mobile_check").innerHTML);
-      }
-    </script>
-
     <title>おうち街歩き</title>
 
     <!-- <script>
@@ -83,6 +74,13 @@
         map: map,
         position: MyLatLng
       });
+
+      window.onload = function () {
+        if(window.matchMedia && window.matchMedia('(max-device-width: 640px)').matches){
+          document.getElementById("mobile_check").innerHTML = 1;
+        }
+        alert(document.getElementById("mobile_check").innerHTML);
+      }
 
     </script>
 
